@@ -1,3 +1,5 @@
 [submodule "gdax-python"]
 	path = gdax-python
 	url = https://github.com/danpaquin/gdax-python.git
+
+ignore = dirty

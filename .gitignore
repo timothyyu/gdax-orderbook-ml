@@ -1,3 +1,6 @@
 .ipynb_checkpoints
-.cache/
+*.ipynb_checkpoints
 *.cache/
+.cache/
+gdax-python/.cache/
+gdax-python/*.cache/
