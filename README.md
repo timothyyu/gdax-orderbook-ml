@@ -2,7 +2,8 @@
 
 ### Project/File Structure
 - test_dataset_scrape.ipynb
-    - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into Mongo DB
+    - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
+    - Test dataset: 60-90 seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
 
 - test_dataset_load.ipynb &  test_data folder
     - Notebook file for inital test dataset loading + parsing into csv format
@@ -19,7 +20,7 @@
     - Websocket -> MongoDB -> dataframe object (for live dataset functionality)
 
 - [Daniel Paquin's gdax-python](https://github.com/danpaquin/gdax-python) API python client loaded as git submodule (gdax-python is MIT licensed)
-- Development branch checked out; Master branch missing commits and merges essential for stable API connectivity and Mongo intergration
+    - Development branch checked out; Master branch missing commits and merges essential for stable API connectivity and Mongo intergration
 
 **Tensorflow/Keras local GPU backend (CUDA)**
 
@@ -28,4 +29,8 @@
 - Nvidia GPU with CUDA Compute 3.0
     - Nvidia CUDA 9.0
     - Nvidia cuDNN 7.0 (v7.1.2)
-    - pip uninstall tensorflow && pip install tensorflow-gpu (default tensorflow install is CPU-only)
+        - Install  cuDNN .dlls in CUDA directory
+        - Edit environment variables:
+            - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
+    - pip uninstall tensorflow && pip install --ignore-installed --upgrade tensorflow-gpu 
+        - Default tensorflow install is CPU-only; install CUDA and cuDNN requirements, then uninstall tensorflow and reinstall tensorflow-gpu (pip install --ignore-installed --upgrade tensorflow-gpu)
