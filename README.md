@@ -34,3 +34,15 @@
             - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
     - pip uninstall tensorflow && pip install --ignore-installed --upgrade tensorflow-gpu 
         - Default tensorflow install is CPU-only; install CUDA and cuDNN requirements, then uninstall tensorflow and reinstall tensorflow-gpu (pip install --ignore-installed --upgrade tensorflow-gpu)
+
+#### GDAX L2 snapshot and L2update response structure
+L2 snapshot is a snapshot of the entire orderbook for a specified product at a given point in time. L2 update responses are subsquent updates to the snapshot.
+
+**L2 snapshot structure**
+    - [price,size]
+    - 'side' added as part of structure for classification
+        - Bid= buy side
+        - Ask = sell side
+**L2 update structure**
+    - [side, price, size]
+    - size of "0" indicates the price level can be removed
