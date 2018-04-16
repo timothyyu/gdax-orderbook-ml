@@ -1,0 +1,2 @@
+,_id,maker_order_id,price,product_id,sequence,side,size,taker_order_id,time,trade_id,type
+0,5ad3dc2ee3ae711d3ca939a5,97e82bf6-c071-48d7-9810-0cf52e9a3041,8337.66000000,BTC-USD,5686020020,buy,0.23590790,f87435c9-9d7d-485b-b52a-ca76b0bec88d,2018-04-15T23:11:40.934000Z,41700565,last_match
