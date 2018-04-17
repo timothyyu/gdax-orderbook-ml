@@ -3,7 +3,7 @@
 ### Project/File Structure
 - test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
-    - Test dataset: 60-90 seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
+    - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
 
 - test_dataset_load.ipynb &  test_data folder
     - Notebook file for inital test dataset loading + parsing into csv format
@@ -17,7 +17,7 @@
 - MongoDB local instance, Mongo DB Compass & PyMongo
     - Jupyter notebook & Python for inital data request and scrape 
     - GDAX API -> MongoDB -> Pandas DataFrame -> .csv (for test dataset)
-    - Websocket -> MongoDB -> dataframe object (for live dataset functionality)
+    - Websocket -> MongoDB -> DataFrame object (for live dataset functionality)
 
 - [Daniel Paquin's gdax-python](https://github.com/danpaquin/gdax-python) API python client loaded as git submodule (gdax-python is MIT licensed)
     - Development branch checked out; Master branch missing commits and merges essential for stable API connectivity and Mongo intergration
@@ -39,10 +39,10 @@
 L2 snapshot is a snapshot of the entire orderbook for a specified product at a given point in time. L2 update responses are subsquent updates to the snapshot.
 
 **L2 snapshot structure**
-    - [price,size]
+    - [side,price,size]
     - 'side' added as part of structure for classification
         - Bid= buy side
         - Ask = sell side
 **L2 update structure**
-    - [side, price, size]
+    - [side, price, size, time]
     - size of "0" indicates the price level can be removed
