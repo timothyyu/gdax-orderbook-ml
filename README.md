@@ -3,7 +3,7 @@
 ### Project/File Structure
 - test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
-    - Test dataset: 60-90 seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
+    - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
 
 - test_dataset_load.ipynb &  test_data folder
     - Notebook file for inital test dataset loading + parsing into csv format
