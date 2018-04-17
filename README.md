@@ -38,14 +38,14 @@
 #### GDAX L2 snapshot and L2 update response structure
 L2 snapshot is a snapshot of the entire orderbook for a specified product at a given point in time. L2 update responses are subsquent updates to the snapshot.
 
-**L2 snapshot structure**
+#####**L2 snapshot structure**
 
-    - [side,price,size]
-    - 'side' added as part of structure for classification
-        - Bid = buy side
-        - Ask = sell side
+- [side,price,size]
+- 'side' added as part of structure for classification
+    - Bid = buy side
+    - Ask = sell side
 
-**L2 update structure**
+#####**L2 update structure**
 
-    - [side, price, size, time]
-    - size of "0" indicates the price level can be removed
+- [side, price, size, time]
+- size of "0" indicates the price level can be removed
