@@ -12,6 +12,10 @@
     - Notebook file for model prototype design and construction
     - Test (static) dataset will be used first 
     - Streaming (live) dataset from MongoDB + Websocket connection hypothetically possible
+    - Mock models/testing getting LSTM/CNN/GRU models to compile and fit with basic input data (main focus is input shape for LSTM/GRU)
+
+-test_input_feature_expansion.ipynb
+    - Expansion of features/attributes for model design + further refinement of dataset shaping/program structure components
     
 ### Backend Structure
 - MongoDB local instance, Mongo DB Compass & PyMongo
@@ -44,6 +48,14 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 - 'side' added as part of structure for classification
     - Bid = buy side
     - Ask = sell side
+- [size delta, position, sr_proximity]
+    - size delta is change in size since last l2 update
+    - position is change in position since last l2 update
+    - sr_proximity is price point promixity to major support/resistance lines for the past 15 minutes
+        - Auto support/resistance line generation adapted from nakulnayyar SupResGenerator:
+            - https://github.com/nakulnayyar/SupResGenerator
+        - Chart data generated from gdax API request:
+            ` chart_15m =public_client.get_product_historic_rates('BTC-USD', granularity=900)`
 
 #####**L2 update structure**
 
