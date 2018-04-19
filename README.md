@@ -14,8 +14,10 @@
     - Streaming (live) dataset from MongoDB + Websocket connection hypothetically possible
     - Mock models/testing getting LSTM/CNN/GRU models to compile and fit with basic input data (main focus is input shape for LSTM/GRU)
 
--test_input_feature_expansion.ipynb
+- test_input_feature_expansion.ipynb
     - Expansion of features/attributes for model design + further refinement of dataset shaping/program structure components
+    - 15 minute update cycle --> past 15 minutes of candlestick data pulled from GDAX API
+        - Used to generate chart + support/resistance levels + proximity to said support/resistance levels for each price level as a feature
     
 ### Backend Structure
 - MongoDB local instance, Mongo DB Compass & PyMongo
@@ -55,9 +57,11 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
         - Auto support/resistance line generation adapted from nakulnayyar SupResGenerator:
             - https://github.com/nakulnayyar/SupResGenerator
         - Chart data generated from gdax API request:
-            ` chart_15m =public_client.get_product_historic_rates('BTC-USD', granularity=900)`
+        `chart_15m =public_client.get_product_historic_rates('BTC-USD', granularity=900)`
 
 #####**L2 update structure**
 
 - [side, price, size, time]
 - size of "0" indicates the price level can be removed
+- [size delta, position, sr_proximity]
+    - updated with every l2 update applied to l2 snapshot (before inputs are fed as features into ml model)
