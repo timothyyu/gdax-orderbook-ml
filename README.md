@@ -27,6 +27,9 @@
 
 - [Daniel Paquin's gdax-python](https://github.com/danpaquin/gdax-python) API python client loaded as git submodule (gdax-python is MIT licensed)
     - Development branch checked out; Master branch missing commits and merges essential for stable API connectivity and Mongo intergration
+    - If imported as git submodule: cd into directory folder in project folder and git pull, or `git submodule update --init`  from root project directory from git bash 
+        - Once respository as submodule pulled/updated, cd into gdax-python and install the package: `python setup.py install`
+        - Then deactivate/reactivate environment
 
 **Tensorflow/Keras local GPU backend (CUDA)**
 
