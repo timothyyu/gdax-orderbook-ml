@@ -46,7 +46,7 @@
         - Default tensorflow install is CPU-only; install CUDA and cuDNN requirements, then uninstall tensorflow and reinstall tensorflow-gpu (pip install --ignore-installed --upgrade tensorflow-gpu)
 
 #### GDAX L2 snapshot and L2 update response structure
-L2 snapshot is a snapshot of the entire orderbook for a specified product at a given point in time. L2 update responses are subsquent updates to the snapshot.
+L2 snapshot is a snapshot of the entire orderbook for a specified product at a given point in time. L2 update responses are subsquent updates to the snapshot (of the orderbook state).
 
 #####**L2 snapshot structure**
 
@@ -54,18 +54,19 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 - 'side' added as part of structure for classification
     - Bid = buy side
     - Ask = sell side
-- [size delta, position, sr_proximity]
+- [size delta, position, size_delta, sr_prox_value,sr_prox_line]
     - size delta is change in size since last l2 update
     - position is change in position since last l2 update
-    - sr_proximity is price point promixity to major support/resistance lines for the past 15 minutes
+    - sr_prox_value/sr_prox_line is price point promixity to major support/resistance lines for the past 15 minutes
+        - [size delta, position, size_delta, sr_prox_value,sr_prox_line]
+            - updated with every l2 update applied to l2 snapshot (before inputs loaded as features into model)
         - Auto support/resistance line generation adapted from nakulnayyar SupResGenerator:
             - https://github.com/nakulnayyar/SupResGenerator
         - Chart data generated from gdax API request:
-        `chart_15m =public_client.get_product_historic_rates('BTC-USD', granularity=900)`
+        `chart_15m =public_client.get_product_historic_rates('BTC-USD', granularity=60)`
 
 #####**L2 update structure**
 
 - [side, price, size, time]
-- size of "0" indicates the price level can be removed
-- [size delta, position, size_delta, sr_prox_value,sr_prox_line]
-    - updated with every l2 update applied to l2 snapshot (before inputs loaded as features into model)
+    - size of "0" indicates the price level can be removed
+    - 'size_delta' feature calculated from difference
