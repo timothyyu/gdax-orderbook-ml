@@ -1,25 +1,26 @@
 # gdax-orderbook-ml
 
 ### Project/File Structure
-- test_dataset_scrape.ipynb
+- 1_test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
     - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
-
-- test_dataset_load.ipynb &  test_data folder
+- 2_test_dataset_load.ipynb &  test_data folder
     - Notebook file for inital test dataset loading + parsing into csv format
-
-- test_dataset_model_prototype.ipynb
+- 3_test_dataset_model_prototype.ipynb
     - Notebook file for model prototype design and construction
     - Test (static) dataset will be used first 
     - Streaming (live) dataset from MongoDB + Websocket connection hypothetically possible
     - Mock models/testing getting LSTM/CNN/GRU models to compile and fit with basic input data (main focus is input shape for LSTM/GRU)
-
-- test_input_feature_expansion.ipynb
+- 4_test_input_feature_expansion.ipynb
     - Expansion of features/attributes for model design + further refinement of dataset shaping/program structure components
     - 15 minute update cycle --> past 15 minutes of candlestick data pulled from GDAX API
         - Used to generate chart + support/resistance levels + proximity to said support/resistance levels for each price level as a feature
-    
-### Backend Structure
+    - Implementation of base logic for applying l2 update states orderbook snapshot
+- 5_test_input_feature_refinement.ipynb:
+    - Further reshaping of input/test data for LSTM/GRU model before update functions/definitions for continuous updates is implemented
+    - Data structures for scrape/request log and support/resistance (predicted vs actual)
+
+
 - MongoDB local instance, Mongo DB Compass & PyMongo
     - Jupyter notebook & Python for inital data request and scrape 
     - GDAX API -> MongoDB -> Pandas DataFrame -> .csv (for test dataset)
@@ -66,5 +67,5 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 
 - [side, price, size, time]
 - size of "0" indicates the price level can be removed
-- [size delta, position, sr_proximity]
-    - updated with every l2 update applied to l2 snapshot (before inputs are fed as features into ml model)
+- [size delta, position, size_delta, sr_prox_value,sr_prox_line]
+    - updated with every l2 update applied to l2 snapshot (before inputs loaded as features into model)
