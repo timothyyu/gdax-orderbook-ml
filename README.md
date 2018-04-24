@@ -19,7 +19,11 @@
 - 5_test_input_feature_refinement.ipynb:
     - Further reshaping of input/test data for LSTM/GRU model before update functions/definitions for continuous updates is implemented
     - Data structures for scrape/request log and support/resistance (predicted vs actual)
-
+- 6_raw_dataset_update.ipynb:
+    - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
+        - L2 Snapshot + L2 Updates without overhead of Match data response
+- Model folder
+    - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
 
 - MongoDB local instance, Mongo DB Compass & PyMongo
     - Jupyter notebook & Python for inital data request and scrape 
