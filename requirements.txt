@@ -1,0 +1,6 @@
+setuptools==39.0.1
+bintrees==2.0.7
+pymongo==3.6.1
+pytest==3.3.2
+requests==2.13.0
+websocket_client==0.47.0
