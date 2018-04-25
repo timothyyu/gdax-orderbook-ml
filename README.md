@@ -22,6 +22,9 @@
 - 6_raw_dataset_update.ipynb:
     - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
         - L2 Snapshot + L2 Updates without overhead of Match data response
+- 7_input_feature_refinement_continued.ipynb:
+    - Further refinement to program structure, loop structure, and model structure
+
 - Model folder
     - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
 
