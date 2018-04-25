@@ -24,6 +24,11 @@
         - L2 Snapshot + L2 Updates without overhead of Match data response
 - 7_input_feature_refinement_continued.ipynb:
     - Further refinement to program structure, loop structure, and model structure
+- 8_program_structure_improvement.ipynb:
+    - Even further refinement to program structure
+        + Function scope and structure
+        + Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
+        
 
 - Model folder
     - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
