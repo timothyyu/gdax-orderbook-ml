@@ -64,7 +64,7 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 
 - [side,price,size]
 - 'side' added as part of structure for classification
-    - Bid = buy side
+    - Bid buy side
     - Ask = sell side
 - [size delta, position, size_delta, sr_prox_value,sr_prox_line]
     - size delta is change in size since last l2 update
@@ -82,3 +82,7 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 - [side, price, size, time]
     - size of "0" indicates the price level can be removed
     - 'size_delta' feature calculated from difference
+
+### License 
+    - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
+    - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
