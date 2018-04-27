@@ -28,10 +28,13 @@
     - Even further refinement to program structure
         + Function scope and structure
         + Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
+    - Machine learning model refinement & training
         
-
 - Model folder
     - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
+
+-'raw_data' folder: 1hr of scraped data (snapshot + l2 response updates)
+-'test_data' folder: only has 10 minutes of scraped data for testing/development
 
 - MongoDB local instance, Mongo DB Compass & PyMongo
     - Jupyter notebook & Python for inital data request and scrape 
@@ -47,7 +50,7 @@
 **Tensorflow/Keras local GPU backend (CUDA)**
 
 *Local GPU used to greatly accelerate prototyping, construction, and building of ML model(s) for this project, especially considering the nature of the dataset & machine learning model complexity.*
-- [Requirements to run tensorflow with GPU suppport](https://www.tensorflow.org/install/install_windows#requirements_to_run_tensorflow_with_gpu_support)
+- [Requirements to run tensorflow with GPU support](https://www.tensorflow.org/install/install_windows#requirements_to_run_tensorflow_with_gpu_support)
 - Nvidia GPU with CUDA Compute 3.0
     - Nvidia CUDA 9.0
     - Nvidia cuDNN 7.0 (v7.1.2)
@@ -86,3 +89,6 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 ### License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
+    - autoSR() function adapted from nakulnayyar/SupResGenerator (https://github.com/nakulnayyar/SupResGenerator)
+
+
