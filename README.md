@@ -1,6 +1,9 @@
 # gdax-orderbook-ml
 
 ### Project/File Structure
+
+*Notebooks/ipynb files 1-5 & 7 in archived_ipynb folder*
+
 - 1_test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
     - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
@@ -91,4 +94,3 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
     - autoSR() function adapted from nakulnayyar/SupResGenerator (https://github.com/nakulnayyar/SupResGenerator)
-    
