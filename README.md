@@ -1,6 +1,9 @@
 # gdax-orderbook-ml
 
 ### Project/File Structure
+
+*Notebooks/ipynb files 1-5 & 7 in archived_ipynb folder*
+
 - 1_test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
     - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
@@ -29,12 +32,13 @@
         + Function scope and structure
         + Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
     - Machine learning model refinement & training
-        
 - Model folder
     - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
+- saved_charts folder
+    - Contains output for plt.savefig and graphviz output of model structure
+- 'raw_data' folder: 1hr of scraped data (snapshot + l2 response updates)
+- 'test_data' folder: only has 10 minutes of scraped data for testing/development
 
--'raw_data' folder: 1hr of scraped data (snapshot + l2 response updates)
--'test_data' folder: only has 10 minutes of scraped data for testing/development
 
 - MongoDB local instance, Mongo DB Compass & PyMongo
     - Jupyter notebook & Python for inital data request and scrape 
@@ -90,5 +94,3 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
     - autoSR() function adapted from nakulnayyar/SupResGenerator (https://github.com/nakulnayyar/SupResGenerator)
-
-
