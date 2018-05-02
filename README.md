@@ -2,42 +2,61 @@
 
 ### Project/File Structure
 
-*Notebooks/ipynb files 1-5 & 7 in archived_ipynb folder*
+*Notebooks/ipynb files 1-5 & 7 in archived_ipynb folder. Each sucessive notebook was used to construct and test whether at each "stage" if a project of this kind of scope would even be technically possible. Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
+
+*Latest notebook file with project code:* **8_program_structure_improvement**
 
 - 1_test_dataset_scrape.ipynb
     - Notebook file for inital test scrape of GDAX data for a single product (i.e. "BTC-USD") into MongoDB
     - Test dataset: 10 minutes of seconds of [Level 2](https://docs.gdax.com/#the-code-classprettyprintlevel2code-channel) and [Match](https://docs.gdax.com/#the-code-classprettyprintmatchescode-channel) Data streamed from Websocket into MongoDB
+
 - 2_test_dataset_load.ipynb &  test_data folder
     - Notebook file for inital test dataset loading + parsing into csv format
+
 - 3_test_dataset_model_prototype.ipynb
     - Notebook file for model prototype design and construction
     - Test (static) dataset will be used first 
     - Streaming (live) dataset from MongoDB + Websocket connection hypothetically possible
     - Mock models/testing getting LSTM/CNN/GRU models to compile and fit with basic input data (main focus is input shape for LSTM/GRU)
+
 - 4_test_input_feature_expansion.ipynb
     - Expansion of features/attributes for model design + further refinement of dataset shaping/program structure components
     - 15 minute update cycle --> past 15 minutes of candlestick data pulled from GDAX API
         - Used to generate chart + support/resistance levels + proximity to said support/resistance levels for each price level as a feature
     - Implementation of base logic for applying l2 update states orderbook snapshot
+
 - 5_test_input_feature_refinement.ipynb:
     - Further reshaping of input/test data for LSTM/GRU model before update functions/definitions for continuous updates is implemented
     - Data structures for scrape/request log and support/resistance (predicted vs actual)
+
 - 6_raw_dataset_update.ipynb:
     - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
         - L2 Snapshot + L2 Updates without overhead of Match data response
+
 - 7_input_feature_refinement_continued.ipynb:
     - Further refinement to program structure, loop structure, and model structure
+
 - 8_program_structure_improvement.ipynb:
     - Even further refinement to program structure
         + Function scope and structure
         + Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
     - Machine learning model refinement & training
-- Model folder
+
+- 'model' folder:
     - Contains json and h5 files for Tensorflow/Keras models (trained model and model weight export/import)
-- saved_charts folder
+
+      ​
+
+- 'saved_charts' folder:
     - Contains output for plt.savefig and graphviz output of model structure
+
 - 'raw_data' folder: 1hr of scraped data (snapshot + l2 response updates)
+
 - 'test_data' folder: only has 10 minutes of scraped data for testing/development
+
+- 'design_mockup' folder: Contains diagrams, drawings, and notes used in the process of both model and project design, both during the prototyping and development process.
+
+    ​
 
 
 - MongoDB local instance, Mongo DB Compass & PyMongo
@@ -89,6 +108,19 @@ L2 snapshot is a snapshot of the entire orderbook for a specified product at a g
 - [side, price, size, time]
     - size of "0" indicates the price level can be removed
     - 'size_delta' feature calculated from difference
+
+**Publications, whitepapers, and other resources referenced for model structure layout & design:**
+
+- [How to Construct Deep Recurrent Neural Networks](https://arxiv.org/abs/1312.6026)
+- [Training and Analysing Deep Recurrent Neural Networks](https://papers.nips.cc/paper/5166-training-and-analysing-deep-recurrent-neural-networks)
+- [Where to Apply Dropout in Recurrent Neural Networks for Handwriting Recognition?](https://pdfs.semanticscholar.org/3061/db5aab0b3f6070ea0f19f8e76470e44aefa5.pdf)
+- [Dropout improves Recurrent Neural Networks for Handwriting Recognition](https://arxiv.org/pdf/1312.4569.pdf)
+- [Speech Recognition with Deep Recurrent Neural Networks](https://arxiv.org/abs/1303.5778)
+- [Recurrent Dropout without Memory Loss](https://arxiv.org/abs/1603.05118)
+
+
+
+
 
 ### License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
