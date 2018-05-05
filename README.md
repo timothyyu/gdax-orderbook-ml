@@ -1,5 +1,7 @@
 # gdax-orderbook-ml
 
+Application of machine learning to the GDAX orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development.
+
 ### Project/File Structure
 
 *Notebooks/ipynb files 1-5 & 7 in archived_ipynb folder. Each sucessive notebook was used to construct and test whether at each "stage" if a project of this kind of scope would even be technically possible. Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
