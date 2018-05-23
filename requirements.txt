@@ -71,6 +71,7 @@ html5lib==0.9999999
 idna==2.6
 imageio==2.2.0
 imagesize==0.7.1
+ipykernel==4.8.2
 ipython==6.2.1
 ipython-genutils==0.2.0
 ipywidgets==7.1.1
@@ -101,6 +102,7 @@ mccabe==0.6.1
 menuinst==1.4.11
 mistune==0.8.3
 mpmath==1.0.0
+msgpack==0.5.6
 msgpack-python==0.5.1
 multidict==4.1.0
 multipledispatch==0.4.9
@@ -142,6 +144,7 @@ protobuf==3.5.2.post1
 psutil==5.4.3
 psycopg2==2.7.4
 py==1.5.2
+pyarrow==0.9.0
 pycodestyle==2.3.1
 pycosat==0.6.3
 pycparser==2.18
