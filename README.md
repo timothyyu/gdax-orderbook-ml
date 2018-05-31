@@ -64,6 +64,13 @@ Latest notebook file(s) with project code:
 - [Dropout improves Recurrent Neural Networks for Handwriting Recognition](https://arxiv.org/pdf/1312.4569.pdf)
 - [Speech Recognition with Deep Recurrent Neural Networks](https://arxiv.org/abs/1303.5778)
 - [Recurrent Dropout without Memory Loss](https://arxiv.org/abs/1603.05118)
+- [Deep Stacked Bidirectional and Unidirectional LSTM Recurrent Neural Network for Network-wide Traffic Speed Prediction](https://arxiv.org/ftp/arxiv/papers/1801/1801.02143.pdf)
+
+#### Project/File Structure Reference
+- [Git LFS (Large File Storage)](https://git-lfs.github.com/)
+- [Git Submodules](https://blog.github.com/2016-02-01-working-with-submodules/)
+    - [Git submodule `ignore = dirty ` parameter](https://stackoverflow.com/questions/41596529/what-is-a-dirty-submodule/41598706?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+- [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
 
 ### License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
