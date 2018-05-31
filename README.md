@@ -1,21 +1,22 @@
 # gdax-orderbook-ml
 
-Application of machine learning to the GDAX orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development.
+Application of machine learning to the GDAX orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development. 
 
-### Project/File Structure
+## Project/File Structure
 
-*Latest notebook file with project code:* 
-**8_program_structure_improvement.ipynb**
+Latest notebook file(s) with project code:
 
-- 6_raw_dataset_update.ipynb:
-    - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
-        - L2 Snapshot + L2 Updates without overhead of Match data response
-
-- 8_program_structure_improvement.ipynb:
+**8_program_structure_improvement.ipynb**:
     - Even further refinement to program structure
         + Function scope and structure
         + Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
     - Machine learning model refinement & training
+    
+**6_raw_dataset_update.ipynb**:
+    - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
+    - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data unlike the test data, which does have Match data)
+        
+### Folder/Repository Structure:  
 
 - 'model' folder:
     - Contains .json and .h5 files for Tensorflow/Keras models (trained model and model weight export/import)
@@ -44,7 +45,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
         - Each sucessive notebook was used to construct and test whether at each "stage" if a project of this kind of scope would even be technically possible. 
     - Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
 
-**Publications, whitepapers, and other resources referenced for model structure layout & design:**
+### **Publications, whitepapers, and other resources referenced for model structure layout & design:**
 
 - [How to Construct Deep Recurrent Neural Networks](https://arxiv.org/abs/1312.6026)
 - [Training and Analysing Deep Recurrent Neural Networks](https://papers.nips.cc/paper/5166-training-and-analysing-deep-recurrent-neural-networks)
