@@ -1,6 +1,6 @@
 # gdax-orderbook-ml
-![Model Structure (visual)](../documentation/images/model_structure_visual.png)
-![Model Structure (text)](../documentation/images/model_structure_text.png)
+Model Structure (visual):
+![Model Structure (visual)](documentation/images/model_structure_visual.png)
 
 Application of machine learning to the GDAX orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development. 
 
