@@ -1,0 +1,6 @@
+raw_data/l2update_10h.csv filter=lfs diff=lfs merge=lfs -text
+raw_data/l2update_10h.msg filter=lfs diff=lfs merge=lfs -text
+raw_data/mongo_raw.json filter=lfs diff=lfs merge=lfs -text
+raw_data/mongo_raw_10h.json filter=lfs diff=lfs merge=lfs -text
+raw_data_10h filter=lfs diff=lfs merge=lfs -text
+raw_data_10h/** filter=lfs diff=lfs merge=lfs -text
