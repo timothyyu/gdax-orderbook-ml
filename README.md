@@ -18,15 +18,18 @@ Latest notebook file(s) with project code:
 - Machine learning model refinement & training + model structure updates
 - Refinement of data storage format/file type 
     - Researching/testing implementations to move away from .csv due to file I/O limitations:
-        - Pickle/h5py/msgpack/feather
+        - Research into Pickle/h5py/msgpack/feather to saving dataframe contents to disk is underway
 - *Currently broken*:
     - API calls from the gdax-python API for candlestick data for the first timestamp of each l2update_15min file (1 hour of l2 updates split into four 15-minute increments) currently not working
+    - Implementation of historical candlestick/OHLC data from 'gdax-ohlc-import' work in progress
 
 **6_raw_dataset_update.ipynb**:
 - Update to raw_data (raw_data scrape in both MongoDB and csv format, 1 hour of websocket data from GDAX)
     - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data  which does have Match data and adds I/O overhead)
         
 ### Folder/Repository Structure:  
+
+- *'gdax-python' and 'gdax-ohlc-import' are repositories imported as Git Submodules*
 
 - 'model_saved' folder:
     - Contains .json and .h5 files for Tensorflow/Keras models (trained model and model weight export/import)
@@ -81,4 +84,5 @@ Latest notebook file(s) with project code:
 ### License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
+    - gdax-ohlc-import: MIT Licensed, Copyright (c) 2018 Arthur Koziel
     - autoSR() function adapted from nakulnayyar/SupResGenerator (https://github.com/nakulnayyar/SupResGenerator)
