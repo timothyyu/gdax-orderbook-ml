@@ -2,4 +2,7 @@
 	path = gdax-python
 	url = https://github.com/danpaquin/gdax-python.git
 
-ignore = dirty
+
+[submodule "gdax-ohlc-import"]
+	path = gdax-ohlc-import
+	url = https://github.com/arthurk/gdax-ohlc-import.git
