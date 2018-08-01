@@ -11,6 +11,16 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 <u>Latest notebook file(s) with project code:</u>
 
+**9_data_pipeline_development.ipynb**:
+
+- Development of data pipelines and optimization of data from MongoDB instance to ML model pretraining
+
+- Development groundwork for automation pipeline for automated hourly data scrape, cycling, and training for model through segregated instance or live online-based model
+
+- Removal of deprecated packages + base package version upgrade (i.e. Pandas)
+
+  ​
+
 **8_program_structure_improvement.ipynb**:
 - Even further refinement to program structure
     - Function scope and structure & function creation for common operations
@@ -79,7 +89,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
     - [Git submodule `ignore = dirty ` parameter](https://stackoverflow.com/questions/41596529/what-is-a-dirty-submodule/41598706?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
 - [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
 
-####Repositories checked out as Git Submodules
+###Repositories checked out as Git Submodules
 
 - [gdax-python](https://github.com/danpaquin/gdax-python)
 - [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import)
