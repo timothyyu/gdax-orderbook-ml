@@ -45,6 +45,7 @@ decorator==4.0.11
 discord==0.0.2
 discord.py==0.16.12
 distributed==1.16.3
+docopt==0.6.2
 docutils==0.13.1
 entrypoints==0.2.2
 et-xmlfile==1.0.1
@@ -127,6 +128,7 @@ patsy==0.4.1
 pep8==1.7.0
 pickleshare==0.7.4
 Pillow==5.1.0
+pipreqs==0.4.9
 ply==3.10
 prompt-toolkit==1.0.14
 protobuf==3.5.2.post1
@@ -207,4 +209,5 @@ xlrd==1.0.0
 XlsxWriter==0.9.6
 xlwings==0.10.4
 xlwt==1.2.0
+yarg==0.1.9
 zict==0.1.2

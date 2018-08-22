@@ -7,6 +7,12 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 **General project API/data structure:**
 ![General API/data structure:](documentation/design_explanation/1_orderbook_api.jpg)
 
+## General Project Requirements
+
+- Pandas, MongoDB, Git LFS, Feather, Keras, Tensorflow, Scikit-Learn
+- **See requirements.txt for full list of required packages**
+  - ` pip **install** -r **requirements**.**txt** `
+
 ## Project/File Structure
 
 <u>Latest notebook file(s) with project code:</u>
@@ -14,36 +20,33 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 **9_data_pipeline_development.ipynb**:
 
 - Development of data pipelines and optimization of data from MongoDB instance to ML model pretraining
-
-- Development groundwork for automation pipeline for automated hourly data scrape, cycling, and training for model through segregated instance or live online-based model
-
 - Removal of deprecated packages + base package version upgrade (i.e. Pandas)
-
-  ​
+- Development groundwork for automation pipeline for automated hourly data scrape, cycling, and training for model through segregated instance or live online-based model
 
 **8_program_structure_improvement.ipynb**:
 - Even further refinement to program structure
     - Function scope and structure & function creation for common operations
-    - Parsing of raw data into 4 seperate l2 update (4 consecutive 15 minute l2update segements)
+    - Parsing of raw data into 4 separate l2 update (4 consecutive 15 minute l2update segments)
 - Machine learning model refinement & training + model structure updates
-- Refinement of data storage format/file type 
-    - Researching/testing implementations to move away from .csv due to file I/O limitations:
-        - Research into Pickle/h5py/msgpack/feather to saving dataframe contents to disk is underway
+- ~~Refinement of data storage format/file type~~ 
+    - ~~Researching/testing implementations to move away from .csv due to file I/O limitations:~~
+        - ~~Research into Pickle/h5py/msgpack/feather to saving dataframe contents to disk is underway~~
 - *Currently broken*:
-    - API calls from the gdax-python API for candlestick data for the first timestamp of each l2update_15min file (1 hour of l2 updates split into four 15-minute increments) currently not working
+    - API calls from the gdax-python API for candlestick data for the first timestamp of each l2update_15min file (1 hour of l2 updates split into four 15-minute increments) currently not working; see pull requests
     - Implementation of historical candlestick/OHLC data from 'gdax-ohlc-import' work in progress
-    - HDF5 format for data storage would be ideal over msgpack format, except for how HDF5 handles object references for I/O operations 
+    - ~~HDF5 format for data storage would be ideal over msgpack format, except for how HDF5 handles object references for I/O operations~~ 
 
 **6_raw_dataset_update.ipynb**:
 - Notebook file used to scrape/update raw_data for  both MongoDB and csv format, 1 hour of websocket data from GDAX)
-    - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data  which does have Match data and adds I/O overhead)
+    - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data has Match data and adds significant I/O overhead)
       
 ### Folder/Repository Structure:  
 
-- ***'gdax-python' and 'gdax-ohlc-import' are repositories imported as Git Submodules***
+- ***'gdax-python' and 'gdax-ohlc-import' are repositories imported as Git Submodules:***
     - After cloning the main project repository, the following command is required to ensure that the submodule repository contents are pulled/present: `git submodule update --init --recursive`
+    - .gitmodules file is file for submodule parameters
 - 'model_saved' folder:
-    - Contains .json and .h5 files for Tensorflow/Keras models (trained model and model weight export/import)
+    - Contains .json and .h5 files for current and previous Tensorflow/Keras models (trained model and model weight export/import)
 - 'documentation' folder: 
     - **'rds_ml_yu_01b_revised.pptx' is a powerpoint presentation summarizing the key technical components, scope, limitations, of this project.**
     - 'design_mockup' folder: 
@@ -73,7 +76,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
         - Each successive notebook was used to construct and test whether at each "stage" if a project of this kind of scope would even be technically possible. 
     - Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
 
-### **Publications, whitepapers, and other resources referenced for model structure layout & design:**
+### **Publications, whitepapers, and other resources referenced for model structure and design:**
 
 - [How to Construct Deep Recurrent Neural Networks](https://arxiv.org/abs/1312.6026)
 - [Training and Analysing Deep Recurrent Neural Networks](https://papers.nips.cc/paper/5166-training-and-analysing-deep-recurrent-neural-networks)
@@ -92,10 +95,10 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 ###Repositories checked out as Git Submodules
 
 - [gdax-python](https://github.com/danpaquin/gdax-python)
-- [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import)
+- [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import) (Currently not fully used/implemented)
 
 ### License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
     - gdax-ohlc-import: MIT Licensed, Copyright (c) 2018 Arthur Koziel
-    - autoSR() function adapted from nakulnayyar/SupResGenerator (https://github.com/nakulnayyar/SupResGenerator)
+    - autoSR() function adapted from nakulnayyar/SupResGenerator, Copyright (c) 2016 Nakul Nayyar (https://github.com/nakulnayyar/SupResGenerator)
