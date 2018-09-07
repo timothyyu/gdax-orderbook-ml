@@ -9,9 +9,14 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 ## General Project Requirements
 
-- Pandas, MongoDB, Git LFS, Feather, Keras, Tensorflow, Scikit-Learn
+- Python, Pandas, MongoDB, PyMongo, Git LFS, Feather, Keras, Tensorflow, Scikit-Learn
 - **See requirements.txt for full list of required packages**
-  - ` pip **install** -r **requirements**.**txt** `
+  - ` pip install -r requirements.txt` 
+
+### Git submodule dependencies 
+
+- [gdax-python](https://github.com/danpaquin/gdax-python)
+- [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import) (Currently not fully implemented)
 
 ## Project/File Structure
 
@@ -40,7 +45,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - Notebook file used to scrape/update raw_data for  both MongoDB and csv format, 1 hour of websocket data from GDAX)
     - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data has Match data and adds significant I/O overhead)
       
-### Folder/Repository Structure:  
+### Folder/Repository Structure  
 
 - ***'gdax-python' and 'gdax-ohlc-import' are repositories imported as Git Submodules:***
     - After cloning the main project repository, the following command is required to ensure that the submodule repository contents are pulled/present: `git submodule update --init --recursive`
@@ -48,7 +53,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - 'model_saved' folder:
     - Contains .json and .h5 files for current and previous Tensorflow/Keras models (trained model and model weight export/import)
 - 'documentation' folder: 
-    - **'rds_ml_yu_01b_revised.pptx' is a powerpoint presentation summarizing the key technical components, scope, limitations, of this project.**
+    - **'rds_ml_yu.revised.pptx' is a powerpoint presentation summarizing the key technical components, scope, limitations, of this project.**
     - 'design_mockup' folder: 
         - Contains diagrams, drawings, and notes used in the process of model and project design during prototyping, testing, and expansion.
     - 'design_explanation' folder:
@@ -70,13 +75,22 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
         - l2update_10h, request_log_10h, and snapshot_asks/bids_10h 
         - 10 hours of scraped data in raw mongoDB export (JSON): mongo_raw_10h.json
     - Data in .msg (MessagePack) format currently experimental/testing as alternative to .csv format for I/O operations
+- 'raw_data_pipeline' folder: 
+    - Contains data in .feather format as part of data pipeline(s) implementation and development
 - 'archived_ipynb' folder: 
     - Contains previous Jupyter Notebook files used in the construction, design, and prototyping of components of this project.
         - Jupyter Notebook (.ipynb) notebook files 1-5 & 7
         - Each successive notebook was used to construct and test whether at each "stage" if a project of this kind of scope would even be technically possible. 
-    - Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
+    - *Successive numbered notebooks generally improve and are iterative in nature on previous notebook files for this project.*
 
-### **Publications, whitepapers, and other resources referenced for model structure and design:**
+## Misc. Technical Reference
+
+- [Git LFS (Large File Storage)](https://git-lfs.github.com/)
+- [Git Submodules](https://blog.github.com/2016-02-01-working-with-submodules/)
+  - [Git submodule `ignore = dirty ` parameter](https://stackoverflow.com/questions/41596529/what-is-a-dirty-submodule/41598706?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+- [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
+
+## **Publications and Journals referenced for model structure and design**
 
 - [How to Construct Deep Recurrent Neural Networks](https://arxiv.org/abs/1312.6026)
 - [Training and Analysing Deep Recurrent Neural Networks](https://papers.nips.cc/paper/5166-training-and-analysing-deep-recurrent-neural-networks)
@@ -86,18 +100,7 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - [Recurrent Dropout without Memory Loss](https://arxiv.org/abs/1603.05118)
 - [Deep Stacked Bidirectional and Unidirectional LSTM Recurrent Neural Network for Network-wide Traffic Speed Prediction](https://arxiv.org/ftp/arxiv/papers/1801/1801.02143.pdf)
 
-#### Misc. Technical Reference
-- [Git LFS (Large File Storage)](https://git-lfs.github.com/)
-- [Git Submodules](https://blog.github.com/2016-02-01-working-with-submodules/)
-    - [Git submodule `ignore = dirty ` parameter](https://stackoverflow.com/questions/41596529/what-is-a-dirty-submodule/41598706?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
-- [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
-
-###Repositories checked out as Git Submodules
-
-- [gdax-python](https://github.com/danpaquin/gdax-python)
-- [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import) (Currently not fully used/implemented)
-
-### License 
+## License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
     - gdax-ohlc-import: MIT Licensed, Copyright (c) 2018 Arthur Koziel
