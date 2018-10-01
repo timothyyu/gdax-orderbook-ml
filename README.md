@@ -12,6 +12,19 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - Python, Pandas, MongoDB, PyMongo, Git LFS, Feather, Keras, Tensorflow, Scikit-Learn
 - **See requirements.txt for full list of required packages**
   - ` pip install -r requirements.txt` 
+  
+### Tensorflow/Keras local GPU backend configuration (Nvidia CUDA/cuDNN)
+
+*Local GPU used to greatly accelerate prototyping, construction, and building of ML model(s) for this project, especially considering the nature of the dataset & machine learning model complexity.*
+- [Requirements to run tensorflow with GPU support](https://www.tensorflow.org/install/install_windows#requirements_to_run_tensorflow_with_gpu_support)
+- Nvidia GPU compatible with with CUDA Compute 3.0
+    - Nvidia CUDA 9.0
+    - Nvidia cuDNN 7.0 (v7.1.2)
+        - Install  cuDNN .dlls in CUDA directory
+        - Edit environment variables:
+            - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
+    - pip uninstall tensorflow && pip install --ignore-installed --upgrade tensorflow-gpu 
+        - Default tensorflow install is CPU-only; install CUDA and cuDNN requirements, then uninstall tensorflow and reinstall tensorflow-gpu (pip install --ignore-installed --upgrade tensorflow-gpu)
 
 ### Git submodule dependencies 
 
