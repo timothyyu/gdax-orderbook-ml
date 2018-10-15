@@ -9,10 +9,12 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 ## General Project Requirements
 
-- Python, Pandas, MongoDB, PyMongo, Git LFS, Feather, Keras, Tensorflow, Scikit-Learn
-- **See requirements.txt for full list of required packages**
-  - ` pip install -r requirements.txt` 
-  
+- Anaconda environment recommended - see `requirements.yml`
+  - Python, Pandas, Matplotlib, MongoDB, PyMongo, Git LFS, Numpy, Feather
+  - Keras, Tensorflow, Scikit-Learn, Jupyter Notebook
+- Python client for the Coinbase Pro API: [coinbasepro-python] (https://github.com/danpaquin/coinbasepro-python)
+- CUDA/CUDNN-compatible GPU **highly recommended** for model training, testing, and predicting
+
 ### Tensorflow/Keras local GPU backend configuration (Nvidia CUDA/cuDNN)
 
 *Local GPU used to greatly accelerate prototyping, construction, and building of ML model(s) for this project, especially considering the nature of the dataset & machine learning model complexity.*
@@ -26,10 +28,6 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
     - pip uninstall tensorflow && pip install --ignore-installed --upgrade tensorflow-gpu 
         - Default tensorflow install is CPU-only; install CUDA and cuDNN requirements, then uninstall tensorflow and reinstall tensorflow-gpu (pip install --ignore-installed --upgrade tensorflow-gpu)
 
-### Git submodule dependencies 
-
-- [gdax-python](https://github.com/danpaquin/gdax-python)
-- [gdax-ohlc-import](https://github.com/arthurk/gdax-ohlc-import) (Currently not fully implemented)
 
 ## Project/File Structure
 
@@ -40,22 +38,18 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - Development of data pipelines and optimization of data from MongoDB instance to ML model pretraining
 - Removal of deprecated packages + base package version upgrade (i.e. Pandas)
 - Development groundwork for automation pipeline for automated hourly data scrape, cycling, and training for model through segregated instance or live online-based model
+- Usage of in-line markdown cells in-notebook for readability and consistency
 
 **8_program_structure_improvement.ipynb**:
 - Even further refinement to program structure
     - Function scope and structure & function creation for common operations
     - Parsing of raw data into 4 separate l2 update (4 consecutive 15 minute l2update segments)
 - Machine learning model refinement & training + model structure updates
-- ~~Refinement of data storage format/file type~~ 
-    - ~~Researching/testing implementations to move away from .csv due to file I/O limitations:~~
-        - ~~Research into Pickle/h5py/msgpack/feather to saving dataframe contents to disk is underway~~
 - *Currently broken*:
     - API calls from the gdax-python API for candlestick data for the first timestamp of each l2update_15min file (1 hour of l2 updates split into four 15-minute increments) currently not working; see pull requests
-    - Implementation of historical candlestick/OHLC data from 'gdax-ohlc-import' work in progress
-    - ~~HDF5 format for data storage would be ideal over msgpack format, except for how HDF5 handles object references for I/O operations~~ 
 
 **6_raw_dataset_update.ipynb**:
-- Notebook file used to scrape/update raw_data for  both MongoDB and csv format, 1 hour of websocket data from GDAX)
+- Notebook file used to scrape/update raw_data for both MongoDB and csv format, 1 hour of websocket data from GDAX)
     - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data has Match data and adds significant I/O overhead)
       
 ### Folder/Repository Structure  
@@ -99,9 +93,10 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 ## Misc. Technical Reference
 
 - [Git LFS (Large File Storage)](https://git-lfs.github.com/)
+- [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
 - [Git Submodules](https://blog.github.com/2016-02-01-working-with-submodules/)
   - [Git submodule `ignore = dirty ` parameter](https://stackoverflow.com/questions/41596529/what-is-a-dirty-submodule/41598706?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
-- [MongoDB raw export to JSON](https://www.mkyong.com/mongodb/mongodb-import-and-export-example/)
+
 
 ## **Publications and Journals referenced for model structure and design**
 
@@ -115,6 +110,6 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 ## License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
-    - gdax-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
+    - coinbasepro-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
     - gdax-ohlc-import: MIT Licensed, Copyright (c) 2018 Arthur Koziel
     - autoSR() function adapted from nakulnayyar/SupResGenerator, Copyright (c) 2016 Nakul Nayyar (https://github.com/nakulnayyar/SupResGenerator)
