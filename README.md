@@ -9,9 +9,11 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 ## General Project Requirements
 
-- Anaconda environment recommended - see `requirements.yml`
-  - Python, Pandas, Matplotlib, MongoDB, PyMongo, Git LFS, Numpy, Feather
-  - Keras, Tensorflow, Scikit-Learn, Jupyter Notebook
+- Anaconda environment strongly recommended 
+    - see `requirements.txt` for `pip`, or `environment.yml` for Anaconda/conda
+        - Python, Pandas, Matplotlib, MongoDB, PyMongo, Git LFS
+        - Scipy, Numpy, Feather
+        - Keras, Tensorflow, Scikit-Learn, Jupyter Notebook
 - Python client for the Coinbase Pro API: [coinbasepro-python] (https://github.com/danpaquin/coinbasepro-python)
 - CUDA/CUDNN-compatible GPU **highly recommended** for model training, testing, and predicting
 
@@ -39,17 +41,23 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 - Removal of deprecated packages + base package version upgrade (i.e. Pandas)
 - Development groundwork for automation pipeline for automated hourly data scrape, cycling, and training for model through segregated instance or live online-based model
 - Usage of in-line markdown cells in-notebook for readability and consistency
+- Even further refinement to program structure
+- Function scope and structure & function creation for common operations
+- Parsing of raw data into 4 separate l2 update (4 consecutive 15 minute l2update segments)
+
+**9a_model_restructure.ipynb**:
+- Notebook used for further development of model in different formats, and testing of reduced complexity models
+    - Keras Sequential() Model
+    - Keras Functional API
+    - Raw Tensorflow
 
 **8_program_structure_improvement.ipynb**:
-- Even further refinement to program structure
-    - Function scope and structure & function creation for common operations
-    - Parsing of raw data into 4 separate l2 update (4 consecutive 15 minute l2update segments)
-- Machine learning model refinement & training + model structure updates
-- *Currently broken*:
-    - API calls from the gdax-python API for candlestick data for the first timestamp of each l2update_15min file (1 hour of l2 updates split into four 15-minute increments) currently not working; see pull requests
+- Previous notebook with proof-of-concept output results 
+    - Several function calls via API and multiple packages required are deprecated
+    - Use as reference for updated development files/notebooks
 
 **6_raw_dataset_update.ipynb**:
-- Notebook file used to scrape/update raw_data for both MongoDB and csv format, 1 hour of websocket data from GDAX)
+- Notebook file used to scrape/update raw_data for both MongoDB and csv format, 1 hour of websocket data from GDAX
     - L2 Snapshot + L2 Updates without overhead of Match data response (does not have Match data; test data has Match data and adds significant I/O overhead)
       
 ### Folder/Repository Structure  
