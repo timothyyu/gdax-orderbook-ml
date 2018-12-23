@@ -1,5 +1,5 @@
 # gdax-orderbook-ml
-Application of machine learning to the GDAX orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development. 
+Application of machine learning to the Coinbase (GDAX) orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development. 
 
 **Model Structure (visual):**
 ![Model Structure (visual)](documentation/images/model_structure_visual.png)
@@ -11,9 +11,10 @@ Application of machine learning to the GDAX orderbook using a stacked bidirectio
 
 - Anaconda environment strongly recommended 
     - see `requirements.txt` for `pip`, or `environment.yml` for Anaconda/conda
+        - Jupyter Notebook
         - Python, Pandas, Matplotlib, MongoDB, PyMongo, Git LFS
         - Scipy, Numpy, Feather
-        - Keras, Tensorflow, Scikit-Learn, Jupyter Notebook
+        - Keras, Tensorflow, Scikit-Learn
 - Python client for the Coinbase Pro API: [coinbasepro-python] (https://github.com/danpaquin/coinbasepro-python)
 - CUDA/CUDNN-compatible GPU **highly recommended** for model training, testing, and predicting
 
