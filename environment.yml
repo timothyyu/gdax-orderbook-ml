@@ -1,7 +1,7 @@
 name: gdax-orderbook-ml
 channels:
-  - anaconda
   - conda-forge
+  - anaconda
   - defaults
 dependencies:
   - _tflow_select=2.1.0=gpu
