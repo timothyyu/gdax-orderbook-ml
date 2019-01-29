@@ -2,10 +2,10 @@
 Application of machine learning to the Coinbase (GDAX) orderbook using a stacked bidirectional LSTM/GRU model to predict new support and resistance on a 15-minute basis; Currently under heavy development. 
 
 **Model Structure (visual):**
-![Model Structure (visual)](documentation/images/model_structure_visual.png)
+![Model Structure (visual)](docs/images/model_structure_visual.png)
 
 **General project API/data structure:**
-![General API/data structure:](documentation/design_explanation/1_orderbook_api.jpg)
+![General API/data structure:](docs/design_explanation/1_orderbook_api.jpg)
 
 ## General Project Requirements
 
@@ -120,5 +120,4 @@ Application of machine learning to the Coinbase (GDAX) orderbook using a stacked
 ## License 
     - gdax-orderbook-ml: BSD-3 Licensed, Copyright (c) 2018 Timothy Yu
     - coinbasepro-python: MIT Licensed, Copyright (c) 2017 Daniel Paquin 
-    - gdax-ohlc-import: MIT Licensed, Copyright (c) 2018 Arthur Koziel
     - autoSR() function adapted from nakulnayyar/SupResGenerator, Copyright (c) 2016 Nakul Nayyar (https://github.com/nakulnayyar/SupResGenerator)
