@@ -1,2 +1,3 @@
-_id,channels,type
-5ad545e5e3ae712cb8091acd,"[{'name': 'level2', 'product_ids': ['BTC-USD']}, {'name': 'matches', 'product_ids': ['BTC-USD']}]",subscriptions
+version https://git-lfs.github.com/spec/v1
+oid sha256:23bb06f59e03b37c5ce025fae260c9066c1d0d7ede913cf5d31a275210d9e430
+size 159
