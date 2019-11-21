@@ -45,4 +45,6 @@ __pycache__/
 *$py.class
 
 
-# End of https://www.gitignore.io/api/macos,jupyternotebook
+# End of https://www.gitignore.io/api/macos,jupyternotebookdata/raw_data_external/coinbaseUSD_11212019.csv
+'data/raw_data_external/coinbaseUSD_11212019.hdf5' 
+
